@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,10 +14,17 @@ namespace loomine
         string staatus;
         int vanus;
         int palk;
+        Emakeel emakeel;
+        public Emakeel Emakeel
+
+        {
+            get { return emakeel; }
+        }
         public Inimene() { }
-        public Inimene(string Perenimi)
+        public Inimene(string Perenimi, Emakeel emakeel)
         {
             perenimi = Perenimi;
+            this.emakeel = emakeel;
         }
         public Inimene(string eesnimi, string perenimi)
         {
@@ -44,13 +51,20 @@ namespace loomine
             set
             {
                 vanus = value;
+            }
+            get { return vanus; }
+        }
+        public string Staatus
+        {
+            get
+            {
                 if (vanus < 7)
                 {
                     staatus = "laps";
                 }
                 else if (vanus < 17)
                 {
-                    staatus="koolilaps";
+                    staatus = "koolilaps";
                 }
                 else if (vanus < 24)
                 {
@@ -60,13 +74,8 @@ namespace loomine
                 {
                     staatus = "tööline";
                 }
-
+                return staatus;
             }
-            get { return vanus; }
-        }
-        public string Staatus
-        {
-            get { return staatus; }
         }
         public int Palk
         {
@@ -91,10 +100,32 @@ namespace loomine
                 }
             }
         }
+        public double Sotsialmaks()
+        {
+            double sots = 0;
+            sots = palk * 0.33;
 
+            return sots;
+        }
 
         public void tervitamine()
         {
+            if (perenimi!=null && eesnimi!=null)
+            {
+                Console.WriteLine("Tere! minu nimi on {0} {1}", eesnimi, perenimi);
+            }
+            else if (perenimi == null && eesnimi!=null)
+            {
+                Console.WriteLine("Tere! minu eesnimi on "+eesnimi);
+            }
+            else if (eesnimi == null && perenimi!=null)
+            {
+                Console.WriteLine("Tere! minu perenimi on "+perenimi);
+            }
+            else
+            {
+                Console.WriteLine("Tere!");
+            }
             Console.WriteLine("tere! minu perenimi on "+perenimi);
             Console.WriteLine("Ma olen {0} aastat vana, olen {1}",vanus,staatus,sugu,palk);
         }
