@@ -10,6 +10,27 @@ namespace loomine
     {
         static void Main(string[] args)
         {
+            Inimene i = new opilane("Anna", "Tamm", "Tarpe21");
+            i.kes_ma_olen(); 
+            i.tervitamine();
+            Inimene[] inim = new Inimene[4];
+
+
+            Inimene[] inim = new Inimene[4];
+            inim[0] = new opetaja();
+            inim[0].kes_ma_olen();
+            inim[1] = new opilane();
+            inim[1].kes_ma_olen();
+
+
+            opilane poiss1 = new opilane();
+            poiss1.Nimi = "gei";
+            poiss1.Perenimi = "homo";
+            poiss1.ruhm = "tarpv22";
+            Console.WriteLine("Milline on sinu hinne");
+            poiss1.Hinne = int.Parse(Console.ReadLine());
+            poiss1.Informatsioon();
+
             Inimene naine = new Inimene("loshara","galya");
             naine.Palk = 100;
             double s = naine.Sotsialmaks();

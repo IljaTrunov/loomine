@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace loomine
 {
-    class Inimene
+    public abstract class Inimene
     {
         string eesnimi;
         string sugu;
@@ -14,7 +14,7 @@ namespace loomine
         string staatus;
         int vanus;
         int palk;
-        Emakeel emakeel;
+        string Emakeel emakeel;
         public Emakeel Emakeel
 
         {
@@ -129,5 +129,7 @@ namespace loomine
             Console.WriteLine("tere! minu perenimi on "+perenimi);
             Console.WriteLine("Ma olen {0} aastat vana, olen {1}",vanus,staatus,sugu,palk);
         }
+
+        public abstract void kes_ma_olen();
     }
 }
